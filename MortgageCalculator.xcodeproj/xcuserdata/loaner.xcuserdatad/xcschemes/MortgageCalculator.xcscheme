@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0610"
+   LastUpgradeVersion = "0620"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91ECD9D11AE02BF30061C84A"
+               BlueprintIdentifier = "2E68C0E71AE0A5C200392AB9"
                BuildableName = "MortgageCalculator.app"
                BlueprintName = "MortgageCalculator"
                ReferencedContainer = "container:MortgageCalculator.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91ECD9EA1AE02BF30061C84A"
+               BlueprintIdentifier = "2E68C1031AE0A5C200392AB9"
                BuildableName = "MortgageCalculatorTests.xctest"
                BlueprintName = "MortgageCalculatorTests"
                ReferencedContainer = "container:MortgageCalculator.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91ECD9EA1AE02BF30061C84A"
+               BlueprintIdentifier = "2E68C1031AE0A5C200392AB9"
                BuildableName = "MortgageCalculatorTests.xctest"
                BlueprintName = "MortgageCalculatorTests"
                ReferencedContainer = "container:MortgageCalculator.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "91ECD9D11AE02BF30061C84A"
+            BlueprintIdentifier = "2E68C0E71AE0A5C200392AB9"
             BuildableName = "MortgageCalculator.app"
             BlueprintName = "MortgageCalculator"
             ReferencedContainer = "container:MortgageCalculator.xcodeproj">
@@ -72,10 +72,11 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "91ECD9D11AE02BF30061C84A"
+            BlueprintIdentifier = "2E68C0E71AE0A5C200392AB9"
             BuildableName = "MortgageCalculator.app"
             BlueprintName = "MortgageCalculator"
             ReferencedContainer = "container:MortgageCalculator.xcodeproj">
@@ -90,10 +91,11 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "91ECD9D11AE02BF30061C84A"
+            BlueprintIdentifier = "2E68C0E71AE0A5C200392AB9"
             BuildableName = "MortgageCalculator.app"
             BlueprintName = "MortgageCalculator"
             ReferencedContainer = "container:MortgageCalculator.xcodeproj">

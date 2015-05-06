@@ -2,7 +2,7 @@
 //  main.m
 //  MortgageCalculator
 //
-//  Created by Sophia Ngo on 4/16/15.
+//  Created by loaner on 4/16/15.
 //  Copyright (c) 2015 SJSU. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  MortgageCalculatorTests.m
 //  MortgageCalculatorTests
 //
-//  Created by Sophia Ngo on 4/16/15.
+//  Created by Mohd Zeeshan Shaikh on 4/16/15.
 //  Copyright (c) 2015 SJSU. All rights reserved.
 //
 

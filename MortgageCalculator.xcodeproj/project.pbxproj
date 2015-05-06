@@ -7,50 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		91ECD9D81AE02BF30061C84A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91ECD9D71AE02BF30061C84A /* main.m */; };
-		91ECD9DB1AE02BF30061C84A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91ECD9DA1AE02BF30061C84A /* AppDelegate.m */; };
-		91ECD9DE1AE02BF30061C84A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91ECD9DD1AE02BF30061C84A /* ViewController.m */; };
-		91ECD9E11AE02BF30061C84A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91ECD9DF1AE02BF30061C84A /* Main.storyboard */; };
-		91ECD9E31AE02BF30061C84A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91ECD9E21AE02BF30061C84A /* Images.xcassets */; };
-		91ECD9E61AE02BF30061C84A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91ECD9E41AE02BF30061C84A /* LaunchScreen.xib */; };
-		91ECD9F21AE02BF30061C84A /* MortgageCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 91ECD9F11AE02BF30061C84A /* MortgageCalculatorTests.m */; };
+		2E5903E21AEB7F6300883A53 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5903E11AEB7F6300883A53 /* libsqlite3.dylib */; };
+		2E5903E51AEB83A100883A53 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E5903E41AEB83A100883A53 /* DBManager.m */; };
+		2E68C0EE1AE0A5C200392AB9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E68C0ED1AE0A5C200392AB9 /* main.m */; };
+		2E68C0F11AE0A5C200392AB9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E68C0F01AE0A5C200392AB9 /* AppDelegate.m */; };
+		2E68C0FA1AE0A5C200392AB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E68C0F81AE0A5C200392AB9 /* Main.storyboard */; };
+		2E68C0FC1AE0A5C200392AB9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E68C0FB1AE0A5C200392AB9 /* Images.xcassets */; };
+		2E68C0FF1AE0A5C200392AB9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E68C0FD1AE0A5C200392AB9 /* LaunchScreen.xib */; };
+		2E68C10B1AE0A5C200392AB9 /* MortgageCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E68C10A1AE0A5C200392AB9 /* MortgageCalculatorTests.m */; };
+		2E68C1191AE0C44300392AB9 /* MapViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E68C1181AE0C44300392AB9 /* MapViewViewController.m */; };
+		2EFB16DF1AE6434800E8D766 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFB16DE1AE6434800E8D766 /* MapKit.framework */; };
+		2EFB16E81AE64D0800E8D766 /* CalculationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB16E71AE64D0800E8D766 /* CalculationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		91ECD9EC1AE02BF30061C84A /* PBXContainerItemProxy */ = {
+		2E68C1051AE0A5C200392AB9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 91ECD9CA1AE02BF30061C84A /* Project object */;
+			containerPortal = 2E68C0E01AE0A5C200392AB9 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 91ECD9D11AE02BF30061C84A;
+			remoteGlobalIDString = 2E68C0E71AE0A5C200392AB9;
 			remoteInfo = MortgageCalculator;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		91ECD9D21AE02BF30061C84A /* MortgageCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MortgageCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		91ECD9D61AE02BF30061C84A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		91ECD9D71AE02BF30061C84A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		91ECD9D91AE02BF30061C84A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		91ECD9DA1AE02BF30061C84A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		91ECD9DC1AE02BF30061C84A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		91ECD9DD1AE02BF30061C84A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		91ECD9E01AE02BF30061C84A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		91ECD9E21AE02BF30061C84A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		91ECD9E51AE02BF30061C84A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		91ECD9EB1AE02BF30061C84A /* MortgageCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MortgageCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		91ECD9F01AE02BF30061C84A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		91ECD9F11AE02BF30061C84A /* MortgageCalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MortgageCalculatorTests.m; sourceTree = "<group>"; };
+		2E5903E11AEB7F6300883A53 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		2E5903E31AEB83A100883A53 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		2E5903E41AEB83A100883A53 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		2E68C0E81AE0A5C200392AB9 /* MortgageCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MortgageCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E68C0EC1AE0A5C200392AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E68C0ED1AE0A5C200392AB9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2E68C0EF1AE0A5C200392AB9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2E68C0F01AE0A5C200392AB9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2E68C0F91AE0A5C200392AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2E68C0FB1AE0A5C200392AB9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2E68C0FE1AE0A5C200392AB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2E68C1041AE0A5C200392AB9 /* MortgageCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MortgageCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E68C1091AE0A5C200392AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E68C10A1AE0A5C200392AB9 /* MortgageCalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MortgageCalculatorTests.m; sourceTree = "<group>"; };
+		2E68C1171AE0C44300392AB9 /* MapViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewViewController.h; sourceTree = "<group>"; };
+		2E68C1181AE0C44300392AB9 /* MapViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewViewController.m; sourceTree = "<group>"; };
+		2EFB16DE1AE6434800E8D766 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2EFB16E61AE64D0800E8D766 /* CalculationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculationViewController.h; sourceTree = "<group>"; };
+		2EFB16E71AE64D0800E8D766 /* CalculationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		91ECD9CF1AE02BF30061C84A /* Frameworks */ = {
+		2E68C0E51AE0A5C200392AB9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E5903E21AEB7F6300883A53 /* libsqlite3.dylib in Frameworks */,
+				2EFB16DF1AE6434800E8D766 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91ECD9E81AE02BF30061C84A /* Frameworks */ = {
+		2E68C1011AE0A5C200392AB9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -60,75 +72,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		91ECD9C91AE02BF30061C84A = {
+		2E68C0DF1AE0A5C200392AB9 = {
 			isa = PBXGroup;
 			children = (
-				91ECD9D41AE02BF30061C84A /* MortgageCalculator */,
-				91ECD9EE1AE02BF30061C84A /* MortgageCalculatorTests */,
-				91ECD9D31AE02BF30061C84A /* Products */,
+				3FD4B6681AFACA4300F1D035 /* Custom Annotation */,
+				2E5903E11AEB7F6300883A53 /* libsqlite3.dylib */,
+				2EFB16DE1AE6434800E8D766 /* MapKit.framework */,
+				2E68C0EA1AE0A5C200392AB9 /* MortgageCalculator */,
+				2E68C1071AE0A5C200392AB9 /* MortgageCalculatorTests */,
+				2E68C0E91AE0A5C200392AB9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		91ECD9D31AE02BF30061C84A /* Products */ = {
+		2E68C0E91AE0A5C200392AB9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				91ECD9D21AE02BF30061C84A /* MortgageCalculator.app */,
-				91ECD9EB1AE02BF30061C84A /* MortgageCalculatorTests.xctest */,
+				2E68C0E81AE0A5C200392AB9 /* MortgageCalculator.app */,
+				2E68C1041AE0A5C200392AB9 /* MortgageCalculatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		91ECD9D41AE02BF30061C84A /* MortgageCalculator */ = {
+		2E68C0EA1AE0A5C200392AB9 /* MortgageCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				91ECD9D91AE02BF30061C84A /* AppDelegate.h */,
-				91ECD9DA1AE02BF30061C84A /* AppDelegate.m */,
-				91ECD9DC1AE02BF30061C84A /* ViewController.h */,
-				91ECD9DD1AE02BF30061C84A /* ViewController.m */,
-				91ECD9DF1AE02BF30061C84A /* Main.storyboard */,
-				91ECD9E21AE02BF30061C84A /* Images.xcassets */,
-				91ECD9E41AE02BF30061C84A /* LaunchScreen.xib */,
-				91ECD9D51AE02BF30061C84A /* Supporting Files */,
+				2EFB16E61AE64D0800E8D766 /* CalculationViewController.h */,
+				2EFB16E71AE64D0800E8D766 /* CalculationViewController.m */,
+				2E68C1171AE0C44300392AB9 /* MapViewViewController.h */,
+				2E68C1181AE0C44300392AB9 /* MapViewViewController.m */,
+				2E5903E31AEB83A100883A53 /* DBManager.h */,
+				2E5903E41AEB83A100883A53 /* DBManager.m */,
+				2E68C0EF1AE0A5C200392AB9 /* AppDelegate.h */,
+				2E68C0F01AE0A5C200392AB9 /* AppDelegate.m */,
+				2E68C0F81AE0A5C200392AB9 /* Main.storyboard */,
+				2E68C0FB1AE0A5C200392AB9 /* Images.xcassets */,
+				2E68C0FD1AE0A5C200392AB9 /* LaunchScreen.xib */,
+				2E68C0EB1AE0A5C200392AB9 /* Supporting Files */,
 			);
 			path = MortgageCalculator;
 			sourceTree = "<group>";
 		};
-		91ECD9D51AE02BF30061C84A /* Supporting Files */ = {
+		2E68C0EB1AE0A5C200392AB9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				91ECD9D61AE02BF30061C84A /* Info.plist */,
-				91ECD9D71AE02BF30061C84A /* main.m */,
+				2E68C0EC1AE0A5C200392AB9 /* Info.plist */,
+				2E68C0ED1AE0A5C200392AB9 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		91ECD9EE1AE02BF30061C84A /* MortgageCalculatorTests */ = {
+		2E68C1071AE0A5C200392AB9 /* MortgageCalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				91ECD9F11AE02BF30061C84A /* MortgageCalculatorTests.m */,
-				91ECD9EF1AE02BF30061C84A /* Supporting Files */,
+				2E68C10A1AE0A5C200392AB9 /* MortgageCalculatorTests.m */,
+				2E68C1081AE0A5C200392AB9 /* Supporting Files */,
 			);
 			path = MortgageCalculatorTests;
 			sourceTree = "<group>";
 		};
-		91ECD9EF1AE02BF30061C84A /* Supporting Files */ = {
+		2E68C1081AE0A5C200392AB9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				91ECD9F01AE02BF30061C84A /* Info.plist */,
+				2E68C1091AE0A5C200392AB9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3FD4B6681AFACA4300F1D035 /* Custom Annotation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Custom Annotation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		91ECD9D11AE02BF30061C84A /* MortgageCalculator */ = {
+		2E68C0E71AE0A5C200392AB9 /* MortgageCalculator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 91ECD9F51AE02BF30061C84A /* Build configuration list for PBXNativeTarget "MortgageCalculator" */;
+			buildConfigurationList = 2E68C10E1AE0A5C200392AB9 /* Build configuration list for PBXNativeTarget "MortgageCalculator" */;
 			buildPhases = (
-				91ECD9CE1AE02BF30061C84A /* Sources */,
-				91ECD9CF1AE02BF30061C84A /* Frameworks */,
-				91ECD9D01AE02BF30061C84A /* Resources */,
+				2E68C0E41AE0A5C200392AB9 /* Sources */,
+				2E68C0E51AE0A5C200392AB9 /* Frameworks */,
+				2E68C0E61AE0A5C200392AB9 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -136,47 +162,47 @@
 			);
 			name = MortgageCalculator;
 			productName = MortgageCalculator;
-			productReference = 91ECD9D21AE02BF30061C84A /* MortgageCalculator.app */;
+			productReference = 2E68C0E81AE0A5C200392AB9 /* MortgageCalculator.app */;
 			productType = "com.apple.product-type.application";
 		};
-		91ECD9EA1AE02BF30061C84A /* MortgageCalculatorTests */ = {
+		2E68C1031AE0A5C200392AB9 /* MortgageCalculatorTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 91ECD9F81AE02BF30061C84A /* Build configuration list for PBXNativeTarget "MortgageCalculatorTests" */;
+			buildConfigurationList = 2E68C1111AE0A5C200392AB9 /* Build configuration list for PBXNativeTarget "MortgageCalculatorTests" */;
 			buildPhases = (
-				91ECD9E71AE02BF30061C84A /* Sources */,
-				91ECD9E81AE02BF30061C84A /* Frameworks */,
-				91ECD9E91AE02BF30061C84A /* Resources */,
+				2E68C1001AE0A5C200392AB9 /* Sources */,
+				2E68C1011AE0A5C200392AB9 /* Frameworks */,
+				2E68C1021AE0A5C200392AB9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				91ECD9ED1AE02BF30061C84A /* PBXTargetDependency */,
+				2E68C1061AE0A5C200392AB9 /* PBXTargetDependency */,
 			);
 			name = MortgageCalculatorTests;
 			productName = MortgageCalculatorTests;
-			productReference = 91ECD9EB1AE02BF30061C84A /* MortgageCalculatorTests.xctest */;
+			productReference = 2E68C1041AE0A5C200392AB9 /* MortgageCalculatorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		91ECD9CA1AE02BF30061C84A /* Project object */ = {
+		2E68C0E01AE0A5C200392AB9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = SJSU;
 				TargetAttributes = {
-					91ECD9D11AE02BF30061C84A = {
-						CreatedOnToolsVersion = 6.1;
+					2E68C0E71AE0A5C200392AB9 = {
+						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 7BHCDJ55EZ;
 					};
-					91ECD9EA1AE02BF30061C84A = {
-						CreatedOnToolsVersion = 6.1;
-						TestTargetID = 91ECD9D11AE02BF30061C84A;
+					2E68C1031AE0A5C200392AB9 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 2E68C0E71AE0A5C200392AB9;
 					};
 				};
 			};
-			buildConfigurationList = 91ECD9CD1AE02BF30061C84A /* Build configuration list for PBXProject "MortgageCalculator" */;
+			buildConfigurationList = 2E68C0E31AE0A5C200392AB9 /* Build configuration list for PBXProject "MortgageCalculator" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -184,29 +210,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 91ECD9C91AE02BF30061C84A;
-			productRefGroup = 91ECD9D31AE02BF30061C84A /* Products */;
+			mainGroup = 2E68C0DF1AE0A5C200392AB9;
+			productRefGroup = 2E68C0E91AE0A5C200392AB9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				91ECD9D11AE02BF30061C84A /* MortgageCalculator */,
-				91ECD9EA1AE02BF30061C84A /* MortgageCalculatorTests */,
+				2E68C0E71AE0A5C200392AB9 /* MortgageCalculator */,
+				2E68C1031AE0A5C200392AB9 /* MortgageCalculatorTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		91ECD9D01AE02BF30061C84A /* Resources */ = {
+		2E68C0E61AE0A5C200392AB9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91ECD9E11AE02BF30061C84A /* Main.storyboard in Resources */,
-				91ECD9E61AE02BF30061C84A /* LaunchScreen.xib in Resources */,
-				91ECD9E31AE02BF30061C84A /* Images.xcassets in Resources */,
+				2E68C0FA1AE0A5C200392AB9 /* Main.storyboard in Resources */,
+				2E68C0FF1AE0A5C200392AB9 /* LaunchScreen.xib in Resources */,
+				2E68C0FC1AE0A5C200392AB9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91ECD9E91AE02BF30061C84A /* Resources */ = {
+		2E68C1021AE0A5C200392AB9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -216,47 +242,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		91ECD9CE1AE02BF30061C84A /* Sources */ = {
+		2E68C0E41AE0A5C200392AB9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91ECD9DE1AE02BF30061C84A /* ViewController.m in Sources */,
-				91ECD9DB1AE02BF30061C84A /* AppDelegate.m in Sources */,
-				91ECD9D81AE02BF30061C84A /* main.m in Sources */,
+				2EFB16E81AE64D0800E8D766 /* CalculationViewController.m in Sources */,
+				2E68C1191AE0C44300392AB9 /* MapViewViewController.m in Sources */,
+				2E68C0F11AE0A5C200392AB9 /* AppDelegate.m in Sources */,
+				2E68C0EE1AE0A5C200392AB9 /* main.m in Sources */,
+				2E5903E51AEB83A100883A53 /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91ECD9E71AE02BF30061C84A /* Sources */ = {
+		2E68C1001AE0A5C200392AB9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91ECD9F21AE02BF30061C84A /* MortgageCalculatorTests.m in Sources */,
+				2E68C10B1AE0A5C200392AB9 /* MortgageCalculatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		91ECD9ED1AE02BF30061C84A /* PBXTargetDependency */ = {
+		2E68C1061AE0A5C200392AB9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 91ECD9D11AE02BF30061C84A /* MortgageCalculator */;
-			targetProxy = 91ECD9EC1AE02BF30061C84A /* PBXContainerItemProxy */;
+			target = 2E68C0E71AE0A5C200392AB9 /* MortgageCalculator */;
+			targetProxy = 2E68C1051AE0A5C200392AB9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		91ECD9DF1AE02BF30061C84A /* Main.storyboard */ = {
+		2E68C0F81AE0A5C200392AB9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				91ECD9E01AE02BF30061C84A /* Base */,
+				2E68C0F91AE0A5C200392AB9 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		91ECD9E41AE02BF30061C84A /* LaunchScreen.xib */ = {
+		2E68C0FD1AE0A5C200392AB9 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				91ECD9E51AE02BF30061C84A /* Base */,
+				2E68C0FE1AE0A5C200392AB9 /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -264,7 +292,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		91ECD9F31AE02BF30061C84A /* Debug */ = {
+		2E68C10C1AE0A5C200392AB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -298,7 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -306,7 +334,7 @@
 			};
 			name = Debug;
 		};
-		91ECD9F41AE02BF30061C84A /* Release */ = {
+		2E68C10D1AE0A5C200392AB9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -324,7 +352,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -334,7 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -342,29 +370,29 @@
 			};
 			name = Release;
 		};
-		91ECD9F61AE02BF30061C84A /* Debug */ = {
+		2E68C10F1AE0A5C200392AB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MortgageCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		91ECD9F71AE02BF30061C84A /* Release */ = {
+		2E68C1101AE0A5C200392AB9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MortgageCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
-		91ECD9F91AE02BF30061C84A /* Debug */ = {
+		2E68C1121AE0A5C200392AB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -383,7 +411,7 @@
 			};
 			name = Debug;
 		};
-		91ECD9FA1AE02BF30061C84A /* Release */ = {
+		2E68C1131AE0A5C200392AB9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -401,34 +429,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		91ECD9CD1AE02BF30061C84A /* Build configuration list for PBXProject "MortgageCalculator" */ = {
+		2E68C0E31AE0A5C200392AB9 /* Build configuration list for PBXProject "MortgageCalculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				91ECD9F31AE02BF30061C84A /* Debug */,
-				91ECD9F41AE02BF30061C84A /* Release */,
+				2E68C10C1AE0A5C200392AB9 /* Debug */,
+				2E68C10D1AE0A5C200392AB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		91ECD9F51AE02BF30061C84A /* Build configuration list for PBXNativeTarget "MortgageCalculator" */ = {
+		2E68C10E1AE0A5C200392AB9 /* Build configuration list for PBXNativeTarget "MortgageCalculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				91ECD9F61AE02BF30061C84A /* Debug */,
-				91ECD9F71AE02BF30061C84A /* Release */,
+				2E68C10F1AE0A5C200392AB9 /* Debug */,
+				2E68C1101AE0A5C200392AB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		91ECD9F81AE02BF30061C84A /* Build configuration list for PBXNativeTarget "MortgageCalculatorTests" */ = {
+		2E68C1111AE0A5C200392AB9 /* Build configuration list for PBXNativeTarget "MortgageCalculatorTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				91ECD9F91AE02BF30061C84A /* Debug */,
-				91ECD9FA1AE02BF30061C84A /* Release */,
+				2E68C1121AE0A5C200392AB9 /* Debug */,
+				2E68C1131AE0A5C200392AB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 91ECD9CA1AE02BF30061C84A /* Project object */;
+	rootObject = 2E68C0E01AE0A5C200392AB9 /* Project object */;
 }
