@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
+#import "Annotation.h"
 @interface MapViewViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) NSString *addressQuery;
+//@property (strong, nonatomic) NSString *locationDetails;
+//@property (strong, nonatomic) Annotation *annotation;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property(nonatomic, retain) CLLocationManager *locationManager;

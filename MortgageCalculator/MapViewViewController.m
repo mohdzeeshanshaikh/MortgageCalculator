@@ -9,13 +9,25 @@
 #import "MapViewViewController.h"
 #import "DBManager.h"
 
+#import "Annotation.h"
+#import "DetailViewController.h"
+
 @interface MapViewViewController ()
 
 @end
 
+NSString* _locationDetails;
+NSMutableArray *locations;
+
 @implementation MapViewViewController
 @synthesize mapView;
 
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self viewDidLoad];
+}
 
 - (void)viewDidLoad
 {
@@ -26,6 +38,8 @@
     mapView.zoomEnabled = YES;
     
     _addressQuery=@"";
+    _locationDetails=@"";
+    locations = [[NSMutableArray alloc] init];
     
     DBManager* dbManager = [DBManager getSharedInstance];
     
@@ -33,32 +47,37 @@
     
     NSLog(@"dbData: %@",dbData);
     NSLog(@"dbData count: %lu",(unsigned long)dbData.count);
-    
-    MKCoordinateRegion newRegion;
-    newRegion.center.latitude = 37.34015288;
-    newRegion.center.longitude = -121.88096400;
-    newRegion.span.latitudeDelta = 0.05;//.00032459;
-    newRegion.span.longitudeDelta = 0.05;//.00047190;
-    
-    [self.mapView setRegion:newRegion animated:YES];
+    [self gotoDefaultLocation];
+
     
     NSInteger i;
-   // NSLog(@"dbData: %@",[dbData[2] valueForKey:@"address"]);
     
     for (i=0; i<dbData.count; i++) {
+        
+        _addressQuery=@"";
+        _locationDetails=@"";
+        
         _addressQuery=[_addressQuery stringByAppendingString:[dbData[i] valueForKey:@"address"]];
         _addressQuery=[_addressQuery stringByAppendingString:@", "];
         _addressQuery=[_addressQuery stringByAppendingString:[dbData[i] valueForKey:@"city"]];
-//        _addressQuery=[_addressQuery stringByAppendingString:[dbData[i] objectAtIndex:3]];
-//        _addressQuery=[_addressQuery stringByAppendingString:[dbData[i] objectAtIndex:4]];
-//    _addressQuery=[_addressQuery stringByAppendingString:dbData[2]];
-//    _addressQuery=[_addressQuery stringByAppendingString:dbData[3]];
-//    _addressQuery=[_addressQuery stringByAppendingString:dbData[4]];
+        
+        NSLog(@"address query: %@",_addressQuery);
+        
+        
+        
+        
+        _locationDetails=[_locationDetails stringByAppendingString:@"Address: "];
+        _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"address"]];
+        _locationDetails=[_locationDetails stringByAppendingString:@"\nCity: "];
+        _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"city"]];
+        _locationDetails=[_locationDetails stringByAppendingString:@"\nMortgage Amount: "];
+        _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"mortgageAmount"]];
+        _locationDetails=[_locationDetails stringByAppendingString:@"\nProperty Type: "];
+        _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"propertyType"]];
+        NSLog(@"Location Details: %@",_locationDetails);
     
-    NSLog(@"address query: %@",_addressQuery);
-    
-    [self locateOnMap];
-        _addressQuery=@"";
+        [self locateOnMap];
+
     }
     
 }
@@ -73,6 +92,22 @@
 {
     self.mapView.centerCoordinate = userLocation.location.coordinate;
 }
+
+
+
+- (void)gotoDefaultLocation
+{
+    MKCoordinateRegion newRegion;
+    newRegion.center.latitude = 37.34015288;
+    newRegion.center.longitude = -121.88096400;
+    newRegion.span.latitudeDelta = 0.8;//.00032459;
+    newRegion.span.longitudeDelta = 0.8;//.00047190;
+    
+    [self.mapView setRegion:newRegion animated:YES];
+}
+
+
+
 
 - (void) locateOnMap {
     MKLocalSearchRequest *request =
@@ -90,15 +125,29 @@
             NSLog(@"No Matches");
         else
             NSLog(@"Response: %@",response);
+        unsigned long i;
+        i=0;
             for (MKMapItem *item in response.mapItems)
             {
-                MKPointAnnotation *annotation =
-                [[MKPointAnnotation alloc]init];
-                annotation.coordinate = item.placemark.coordinate;
-                annotation.title = item.name;
+//                MKPointAnnotation *annotation =
+//                [[MKPointAnnotation alloc]init];
+//                annotation.coordinate = item.placemark.coordinate;
+//                annotation.title = item.name;
+//                
+//                [mapView addAnnotation:annotation];
+//                [self gotoDefaultLocation];
                 
+                NSLog(@"Item %lu: %@",i,item);
+                i++;
+
+                Annotation *annotation = [[Annotation alloc] init];
+                //annotation.coordinate=item.placemark.coordinate;
+                [annotation  updateDetails:_locationDetails itm:item];
                 [mapView addAnnotation:annotation];
+                [self gotoDefaultLocation];
+               // [locations addObject:annotation];
             }
+        
     }];
 }
 
@@ -108,16 +157,64 @@
 //    NSLog(@"viewForAnnotation");
 //
 //    MKAnnotationView *returnedAnnotationView = nil;
+////    
+////    // in case it's the user location, we already have an annotation, so just return nil
+////    if (![annotation isKindOfClass:[MKUserLocation class]])
+////    {
 //    
-//    // in case it's the user location, we already have an annotation, so just return nil
-//    if (![annotation isKindOfClass:[MKUserLocation class]])
-//    {
-//       
 //            UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 //            [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
 //            ((MKPinAnnotationView *)returnedAnnotationView).rightCalloutAccessoryView = rightButton;
-//    }
+////    }
 //        return returnedAnnotationView;
 //}
+
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    // here we illustrate how to detect which annotation type was clicked on for its callout
+    id <MKAnnotation> annotation = [view annotation];
+    if ([annotation isKindOfClass:[Annotation class]])
+    {
+        NSLog(@"clicked annotation");
+        
+        DetailViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailViewController"];
+        
+            [self.navigationController pushViewController:detailViewController animated:YES];
+        
+    }
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    MKAnnotationView *returnedAnnotationView = nil;
+    
+    // in case it's the user location, we already have an annotation, so just return nil
+    if (![annotation isKindOfClass:[MKUserLocation class]])
+    {
+        // handle our custom annotations
+        //
+        if ([annotation isKindOfClass:[Annotation class]])
+        {
+            returnedAnnotationView = [Annotation createViewAnnotationForMapView:self.mapView annotation:annotation];
+            
+            // add a detail disclosure button to the callout which will open a new view controller page or a popover
+            //
+            // note: when the detail disclosure button is tapped, we respond to it via:
+            //       calloutAccessoryControlTapped delegate method
+            //
+            // by using "calloutAccessoryControlTapped", it's a convenient way to find out which annotation was tapped
+            //
+            UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+            [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+            ((MKPinAnnotationView *)returnedAnnotationView).rightCalloutAccessoryView = rightButton;
+        }
+    }
+    
+    return returnedAnnotationView;
+}
+
+
+
 
 @end
