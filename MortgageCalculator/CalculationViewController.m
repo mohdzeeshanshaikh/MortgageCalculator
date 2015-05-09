@@ -46,9 +46,9 @@
     self.statePicker.dataSource = self;
     self.statePicker.delegate = self;
     
-    [self.cityName setText:@"Cupertino"];
+    [self.cityName setText:@"San Jose"];
     [self.statePicker selectRow:4 inComponent:0 animated:YES];
-    [self.zipCode setText:@"95014"];
+    [self.zipCode setText:@"95112"];
     
     [self.loanAmount setText:@"100000"];
     [self.downPayment setText:@"20000"];
@@ -56,10 +56,10 @@
     
     
     // scrollview
-    self.scroller.contentSize = CGSizeMake(320, 700);
+    self.scrollTest.contentSize = CGSizeMake(320, 1200);
     UITapGestureRecognizer *tapScroll = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapped)];
     tapScroll.cancelsTouchesInView = NO;
-    [_scroller addGestureRecognizer:tapScroll];
+    [_scrollTest addGestureRecognizer:tapScroll];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,9 +95,9 @@
 - (IBAction)createMortgage:(id)sender {
     [self.propertyType setTitle:@"House" forState:UIControlStateNormal];
     [self.streetAddress setText:@""];
-    [self.cityName setText:@"Cupertino"];
+    [self.cityName setText:@"San Jose"];
     [self.statePicker selectRow:4 inComponent:0 animated:YES];
-    [self.zipCode setText:@"95014"];
+    [self.zipCode setText:@"95112"];
     [self.loanAmount setText:@"100000"];
     [self.downPayment setText:@"20000"];
     [self.annualRate setText:@""];

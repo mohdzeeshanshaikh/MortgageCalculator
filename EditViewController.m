@@ -19,9 +19,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.scrollview setScrollEnabled:YES];
-    [self.scrollview setContentSize:CGSizeMake(320, 800)];
+
     NSLog(@"Data: %@",_data);
 //    NSLog(@"Data: %@",_address_from_map);
     self.type_value.text = [_data[0] valueForKey:@"propertyType"];
@@ -41,6 +39,11 @@
     self.apr_input.text = converted_apr;
     self.term_input.text = converted_term;
     self.result.text = [_data[0] valueForKey:@"mortgageAmount"];
+    // scrollview
+    self.scrollview.contentSize = CGSizeMake(320, 1200);
+    UITapGestureRecognizer *tapScroll = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapped)];
+    tapScroll.cancelsTouchesInView = NO;
+    [_scrollview addGestureRecognizer:tapScroll];
     
 }
 

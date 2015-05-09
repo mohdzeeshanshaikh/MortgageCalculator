@@ -48,7 +48,13 @@
 // optional
 - (NSString *)subtitle
 {
-    return _locationDetails;
+//    return _locationDetails;
+//    UILabel *l1=[[UILabel alloc] init];
+//    l1.frame=CGRectMake(0, 15, 50, 50);
+//    l1.text=@"First line of subtitle";
+//    l1.font=[UIFont fontWithName:@"Arial Rounded MT Bold" size:(10.0)];
+//    return l1;
+    return @"Something Something Something Something Something \n second line here";
 }
 
 + (MKAnnotationView *)createViewAnnotationForMapView:(MKMapView *)mapView annotation:(id <MKAnnotation>)annotation
