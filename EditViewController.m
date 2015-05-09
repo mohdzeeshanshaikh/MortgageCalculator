@@ -91,33 +91,21 @@
     double annualRate = [self.apr_input.text doubleValue];
     int payYear = [self.term_input.text intValue];
     NSString* mortgageAmount = self.result.text;
+    NSString* address = self.address_value.text;
     
     DBManager* dbManager = [DBManager getSharedInstance];
-//    BOOL success = [dbManager saveData:propertyType address:address city:city state:state zipCode:zipCode
-//                            loanAmount:loanAmount downPayment:downPayment annualRate:annualRate payYear:payYear mortgageAmount:mortgageAmount];
-//    
-//    if (success == YES) {
-//        [self.propertyType setUserInteractionEnabled:NO];
-//        [self.streetAddress setUserInteractionEnabled:NO];
-//        [self.cityName setEnabled:NO];
-//        [self.statePicker setUserInteractionEnabled:NO];
-//        [self.zipCode setEnabled:NO];
-//        [self.loanAmount setEnabled:NO];
-//        [self.downPayment setEnabled:NO];
-//        [self.annualRate setEnabled:NO];
-//        [self.payYear setEnabled:NO];
-//        [self.saveButton setEnabled:NO];
-    
-        // NSArray* result = [dbManager getData];
+    BOOL success = [dbManager updateData:address :loanAmount :downPayment :annualRate :payYear :mortgageAmount];
+
+    if (success == YES) {
         
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Data saved successfully."
-//                                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//        [alert show];
-//    } else {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Data save failed."
-//                                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//        [alert show];
-//    }
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Data updated successfully."
+                                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Data updated failed."
+                                                       delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
 
 }
 

@@ -24,8 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.scroller setScrollEnabled:YES];
-    [self.scroller setContentSize:CGSizeMake(320, 800)];
+    [self.scrollTest setScrollEnabled:YES];
+    [self.scrollTest setContentSize:CGSizeMake(320, 1200)];
     
     self.propertyType.layer.borderWidth = 0.5f;
     self.propertyType.layer.cornerRadius = 10;

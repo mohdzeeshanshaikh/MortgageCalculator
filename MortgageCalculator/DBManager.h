@@ -20,5 +20,6 @@
       loanAmount:(int)loanAmount downPayment:(int)downPayment annualRate:(double)annualRate payYear:(int)payYear mortgageAmount:(NSString*)mortgageAmount;
 -(NSArray*) getData;
 -(NSArray*) getDataByAddress : (NSString*) inputAddress;
+- (NSArray*) updateData : (NSString*) inputAddress : (int) newAmt : (int) newPayment : (double) newApr : (int) newTerm : (NSString*) newResult;
 
 @end

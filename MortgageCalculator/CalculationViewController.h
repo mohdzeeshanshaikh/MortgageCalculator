@@ -10,6 +10,7 @@
 
 @interface CalculationViewController : UIViewController <UIActionSheetDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollTest;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroller;
 @property (weak, nonatomic) IBOutlet UIButton *propertyType;
 @property (weak, nonatomic) IBOutlet UITextView *streetAddress;
