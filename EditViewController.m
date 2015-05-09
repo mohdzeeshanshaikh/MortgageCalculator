@@ -19,9 +19,14 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.calculate_btn.layer.borderWidth = 0.5f;
+    self.calculate_btn.layer.cornerRadius = 10;
+    self.calculate_btn.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.update_btn.layer.borderWidth = 0.5f;
+    self.update_btn.layer.cornerRadius = 10;
+    self.update_btn.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 
     NSLog(@"Data: %@",_data);
-//    NSLog(@"Data: %@",_address_from_map);
     self.type_value.text = [_data[0] valueForKey:@"propertyType"];
     self.address_value.text = [_data[0] valueForKey:@"address"];
     self.city_value.text = [_data[0] valueForKey:@"city"];
@@ -31,9 +36,6 @@
     NSString *converted_payment = [[_data[0] valueForKey:@"downPayment"] stringValue];
     NSString *converted_apr = [[_data[0] valueForKey:@"annualRate"] stringValue];
     NSString *converted_term = [[_data[0] valueForKey:@"payYear"] stringValue];
-    //NSString *converted_result = [[_data[0] valueForKey:@"mortgageAmount"] stringValue];
-    //NSLog(@"test: %@",test);
-    //_amt_input.text = [_amt_input.text stringByAppendingString:test];
     self.amt_input.text = converted_amt;
     self.payment_input.text = converted_payment;
     self.apr_input.text = converted_apr;
@@ -87,7 +89,6 @@
 - (IBAction)update:(id)sender {
     
     [self recalculate:self];
-    
     // Update Data
     int loanAmount = [self.amt_input.text intValue];
     int downPayment = [self.payment_input.text intValue];
@@ -100,7 +101,6 @@
     BOOL success = [dbManager updateData:address :loanAmount :downPayment :annualRate :payYear :mortgageAmount];
 
     if (success == YES) {
-        
         NSArray *newValue;
         newValue = [dbManager getDataByAddress:address];
         NSLog(@"New value: %@",newValue );

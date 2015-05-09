@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *payYear;
 @property (weak, nonatomic) IBOutlet UILabel *monthlyPayment;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+@property (weak, nonatomic) IBOutlet UIButton *calculateButton;
 
 - (IBAction)createMortgage:(id)sender;
 

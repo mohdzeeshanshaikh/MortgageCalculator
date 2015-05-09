@@ -68,13 +68,13 @@ Annotation* marker;
         NSLog(@"address query: %@",_addressQuery);
     
         //_locationDetails=[_locationDetails stringByAppendingString:@"Address: "];
-        _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"address"]];
-        _locationDetails=[_locationDetails stringByAppendingString:@"\n"];
-        _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"city"]];
-        _locationDetails=[_locationDetails stringByAppendingString:@"\n"];
+//        _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"address"]];
+//        _locationDetails=[_locationDetails stringByAppendingString:@"\n"];
+//        _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"city"]];
+//        _locationDetails=[_locationDetails stringByAppendingString:@"\n"];
         _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"mortgageAmount"]];
-        _locationDetails=[_locationDetails stringByAppendingString:@"\n"];
-        _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"propertyType"]];
+//        _locationDetails=[_locationDetails stringByAppendingString:@"\n"];
+//        _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"propertyType"]];
         NSLog(@"Location Details: %@",_locationDetails);
         
         
@@ -222,16 +222,16 @@ Annotation* marker;
             // by using "calloutAccessoryControlTapped", it's a convenient way to find out which annotation was tapped
             //
             UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-            [rightButton setTitle:@"StreetView" forState:UIControlStateNormal];
+            [rightButton setTitle:@"Street" forState:UIControlStateNormal];
             
-            rightButton.frame=CGRectMake(0.0, 0.0, 80.0, 140.0);
+            rightButton.frame=CGRectMake(0.0, 0.0, 50.0, 40.0);
             [rightButton addTarget:self action:@selector(streetViewMethod) forControlEvents:UIControlEventTouchUpInside];
             ((MKPinAnnotationView *)returnedAnnotationView).rightCalloutAccessoryView = rightButton;
             
             UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [leftButton setTitle:@"Update" forState:UIControlStateNormal];
             
-            leftButton.frame=CGRectMake(0.0, 0.0, 80.0, 140.0);
+            leftButton.frame=CGRectMake(0.0, 0.0, 60.0, 40.0);
             [leftButton addTarget:self action:@selector(updateMethod) forControlEvents:UIControlEventTouchUpInside];
             ((MKPinAnnotationView *)returnedAnnotationView).leftCalloutAccessoryView = leftButton;
 

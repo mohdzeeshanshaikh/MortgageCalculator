@@ -25,7 +25,10 @@
     [super viewDidLoad];
     
     [self.scrollTest setScrollEnabled:YES];
-    [self.scrollTest setContentSize:CGSizeMake(320, 1200)];
+    [self.scrollTest setContentSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height+200)];
+    
+    self.scrollTest.frame = self.view.bounds;
+    self.scrollTest.autoresizingMask = self.view.autoresizingMask;
     
     self.propertyType.layer.borderWidth = 0.5f;
     self.propertyType.layer.cornerRadius = 10;
@@ -38,6 +41,10 @@
     self.monthlyPayment.layer.borderWidth = 0.5f;
     self.monthlyPayment.layer.cornerRadius = 10;
     self.monthlyPayment.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    
+    self.calculateButton.layer.borderWidth = 0.5f;
+    self.calculateButton.layer.cornerRadius = 10;
+    self.calculateButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     
     // Initialize Data
     statePickerData = @[@"Alabama", @"Alaska", @"Arizona", @"Arkansas", @"California", @"Colorado", @"Connecticut", @"Delaware", @"Florida", @"Georgia", @"Hawaii", @"Idaho", @"Illinois", @"Indiana", @"Iowa", @"Kansas", @"Kentucky", @"Louisiana", @"Maine", @"Maryland", @"Massachusetts", @"Michigan", @"Minnesota", @"Mississippi", @"Missouri", @"Montana", @"Nebraska", @"Nevada", @"New Hampshire", @"New Jersey", @"New Mexico", @"New York", @"North Carolina", @"North Dakota", @"Ohio", @"Oklahoma", @"Oregon", @"Pennsylvania", @"Rhode Island", @"South Carolina", @"South Dakota", @"Tennessee", @"Texas", @"Utah", @"Vermont", @"Virginia", @"Washington", @"West Virginia", @"Wisconsin", @"Wyoming"];
@@ -56,7 +63,7 @@
     
     
     // scrollview
-    self.scrollTest.contentSize = CGSizeMake(320, 1200);
+    //self.scrollTest.contentSize = CGSizeMake(320, 1200);
     UITapGestureRecognizer *tapScroll = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapped)];
     tapScroll.cancelsTouchesInView = NO;
     [_scrollTest addGestureRecognizer:tapScroll];
