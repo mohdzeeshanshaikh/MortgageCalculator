@@ -126,6 +126,7 @@ NSMutableArray *locations;
     
     NSLog(@"Location Details in locateOnMap: %@",_locationDetails);
     NSString* tempLoc = _locationDetails;
+    NSString* tempName = _addressName;
 
     [search startWithCompletionHandler:^(MKLocalSearchResponse
                                          *response, NSError *error) {
@@ -147,7 +148,7 @@ NSMutableArray *locations;
             //NSLog(@"Item in for loop %lu: %@",i,item);
             //i++;
             Annotation *annotation = [[Annotation alloc] init];
-            [annotation  updateDetails:tempLoc itm:item an:_addressName];
+            [annotation  updateDetails:tempLoc itm:item an:tempName];
             NSLog(@"Lat in for loop: %f",annotation.lat);
             NSLog(@"Long in for loop: %f",annotation.lon);
             _locationDetails=@"";
@@ -242,8 +243,8 @@ NSMutableArray *locations;
 {
     if ([view.annotation isKindOfClass:[Annotation class]]) {
         Annotation* marker = view.annotation;
-        NSLog(@"selected marker %@", marker.locationDetails);
-        _cur_address = marker.locationDetails;
+        NSLog(@"selected marker %@", marker.nameParam);
+        _cur_address = marker.nameParam;
     }
 }
 
@@ -259,9 +260,9 @@ NSMutableArray *locations;
         editViewController.address_from_map = _cur_address;
         NSLog(@"EDIT VIEW CONTROLLER ADDR VALUE%@",editViewController.address_from_map);
         //editViewController.data = [dbManager getDataByAddress : _cur_address];
-        NSString *test = @"459 serenade way";
-        editViewController.data = [dbManager getDataByAddress : test];
-        NSLog(@"Data first: %@",editViewController.data);
+//        NSString *test = @"459 serenade way";
+        editViewController.data = [dbManager getDataByAddress : _cur_address];
+        //NSLog(@"Data first: %@",editViewController.data);
         [self.navigationController pushViewController:editViewController animated:YES];
     }
 }

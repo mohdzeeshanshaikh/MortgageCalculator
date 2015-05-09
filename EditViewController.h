@@ -10,6 +10,9 @@
 #import "DBManager.h"
 
 @interface EditViewController : UIViewController
+- (IBAction)recalculate:(id)sender;
+- (IBAction)update:(id)sender;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 @property (weak, nonatomic) IBOutlet UILabel *property_label;
 @property (weak, nonatomic) IBOutlet UILabel *type_label;
 @property (weak, nonatomic) IBOutlet UILabel *type_value;
