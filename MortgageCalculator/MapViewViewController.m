@@ -57,6 +57,7 @@ NSMutableArray *locations;
         
         _addressQuery=@"";
         _locationDetails=@"";
+        _addressName=@"";
         
         _addressQuery=[_addressQuery stringByAppendingString:[dbData[i] valueForKey:@"address"]];
         _addressQuery=[_addressQuery stringByAppendingString:@", "];
@@ -73,6 +74,9 @@ NSMutableArray *locations;
         _locationDetails=[_locationDetails stringByAppendingString:@"\nProperty Type: "];
         _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"propertyType"]];
         NSLog(@"Location Details: %@",_locationDetails);
+        
+        
+        _addressName=[_addressName stringByAppendingString:[dbData[i] valueForKey:@"address"]];
 //        _cur_address = @"";
 
 //        _cur_address = [dbData[i] valueForKey:@"address"];
@@ -143,7 +147,7 @@ NSMutableArray *locations;
             //NSLog(@"Item in for loop %lu: %@",i,item);
             //i++;
             Annotation *annotation = [[Annotation alloc] init];
-            [annotation  updateDetails:tempLoc itm:item];
+            [annotation  updateDetails:tempLoc itm:item an:_addressName];
             NSLog(@"Lat in for loop: %f",annotation.lat);
             NSLog(@"Long in for loop: %f",annotation.lon);
             _locationDetails=@"";
