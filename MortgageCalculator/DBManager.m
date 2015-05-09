@@ -170,12 +170,34 @@ static sqlite3_stmt *statement = nil;
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
         NSString *querySQL = [NSString stringWithFormat:
-                              @"update mortgageDetail set loanAmount=\"%i\", downPayment=\"%i\", annualRate=\"%f\", payYear=\"%i\", mortgageAmount=\"%@\" from mortgageDetail where address like \"%@\"", newAmt, newPayment, newApr, newTerm, newResult, inputAddress];
+                              @"update mortgageDetail set loanAmount=\"%i\", downPayment=\"%i\", annualRate=\"%f\", payYear=\"%i\", mortgageAmount=\"%@\" where address like \"%@\"", newAmt, newPayment, newApr, newTerm, newResult, inputAddress];
         NSLog(@"query: %@",querySQL );
         const char *query_stmt = [querySQL UTF8String];
         NSMutableArray *resultArray = [[NSMutableArray alloc]init];
         if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
             while (sqlite3_step(statement) == SQLITE_ROW) {
+                NSLog(@"Working");
+            }
+        } else {
+            NSLog(@"No Data Found");
+        }
+        sqlite3_reset(statement);
+        return resultArray;
+    }
+    return nil;
+}
+
+- (NSArray*) deleteData : (NSString*) inputAddress{
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
+        NSString *querySQL = [NSString stringWithFormat:
+                              @"delete from mortgageDetail where address like \"%@\"", inputAddress];
+        NSLog(@"query: %@",querySQL );
+        const char *query_stmt = [querySQL UTF8String];
+        NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+        if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
+            while (sqlite3_step(statement) == SQLITE_ROW) {
+                NSLog(@"Deleted successful");
             }
         } else {
             NSLog(@"No Data Found");

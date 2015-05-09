@@ -19,6 +19,7 @@
 
 //NSString* _locationDetails;
 NSMutableArray *locations;
+Annotation* marker;
 
 @implementation MapViewViewController
 @synthesize mapView;
@@ -242,21 +243,25 @@ NSMutableArray *locations;
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
 {
     if ([view.annotation isKindOfClass:[Annotation class]]) {
-        Annotation* marker = view.annotation;
+        marker = view.annotation;
         NSLog(@"selected marker %@", marker.nameParam);
         _cur_address = marker.nameParam;
     }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    DBManager* dbManager = [DBManager getSharedInstance];
     if (buttonIndex == 1) {
         // NSString *name = [alertView textFieldAtIndex:0].text;
         NSLog(@"U R IN DELETE");
+        [dbManager deleteData:_cur_address];
+        //[self.navigationController pushViewController:editViewController animated:YES];
+//        [self viewWillAppear:true];
+        [mapView removeAnnotation:marker];
         
     }else if(buttonIndex==2){
         NSLog(@"U R IN EDIT");
         EditViewController *editViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"EditViewController"];
-        DBManager* dbManager = [DBManager getSharedInstance];
         editViewController.address_from_map = _cur_address;
         NSLog(@"EDIT VIEW CONTROLLER ADDR VALUE%@",editViewController.address_from_map);
         //editViewController.data = [dbManager getDataByAddress : _cur_address];

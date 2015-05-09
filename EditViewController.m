@@ -98,6 +98,9 @@
 
     if (success == YES) {
         
+        NSArray *newValue;
+        newValue = [dbManager getDataByAddress:address];
+        NSLog(@"New value: %@",newValue );
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Data updated successfully."
                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];

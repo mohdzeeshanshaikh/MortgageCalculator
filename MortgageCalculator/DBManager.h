@@ -21,5 +21,6 @@
 -(NSArray*) getData;
 -(NSArray*) getDataByAddress : (NSString*) inputAddress;
 - (NSArray*) updateData : (NSString*) inputAddress : (int) newAmt : (int) newPayment : (double) newApr : (int) newTerm : (NSString*) newResult;
+- (NSArray*) deleteData : (NSString*) inputAddress;
 
 @end
