@@ -1,9 +1,9 @@
 //
 //  DetailViewController.m
-//  MapsCallout
+//  MortgageCalculator
 //
-//  Created by student on 4/23/15.
-//  Copyright (c) 2015 sjsu. All rights reserved.
+//  Created by Mohd Zeeshan Shaikh on 4/23/15.
+//  Copyright (c) 2015 SJSU. All rights reserved.
 //
 
 #import "DetailViewController.h"
@@ -18,11 +18,11 @@
 @implementation DetailViewController{
     GMSPanoramaView *view_;
     BOOL configured_;
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _kPanoramaNear.latitude = _lat;
     _kPanoramaNear.longitude = _lon;
     _kMarkerAt.latitude = _lat;

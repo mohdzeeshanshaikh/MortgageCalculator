@@ -13,8 +13,6 @@
 @interface MapViewViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) NSString *addressQuery;
-//@property (strong, nonatomic) NSString *locationDetails;
-//@property (strong, nonatomic) Annotation *annotation;
 
 @property (strong, nonatomic) NSString *locationDetails;
 @property (strong, nonatomic) NSString *addressName;

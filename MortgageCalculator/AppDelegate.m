@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  MortgageCalculator
 //
-//  Created by Deep on 4/16/15.
+//  Created by Sadhana on 4/16/15.
 //  Copyright (c) 2015 SJSU. All rights reserved.
 //
 

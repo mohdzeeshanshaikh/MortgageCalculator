@@ -21,14 +21,9 @@
 {
     [self.view endEditing:YES];
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.scrollTest setScrollEnabled:YES];
-    [self.scrollTest setContentSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height+200)];
-    
-    self.scrollTest.frame = self.view.bounds;
-    self.scrollTest.autoresizingMask = self.view.autoresizingMask;
     
     self.propertyType.layer.borderWidth = 0.5f;
     self.propertyType.layer.cornerRadius = 10;
@@ -63,7 +58,10 @@
     
     
     // scrollview
-    //self.scrollTest.contentSize = CGSizeMake(320, 1200);
+    [self.scrollTest setScrollEnabled:YES];
+    [self.scrollTest setContentSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height+200)];
+    self.scrollTest.frame = self.view.bounds;
+    self.scrollTest.autoresizingMask = self.view.autoresizingMask;
     UITapGestureRecognizer *tapScroll = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapped)];
     tapScroll.cancelsTouchesInView = NO;
     [_scrollTest addGestureRecognizer:tapScroll];
@@ -71,7 +69,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -156,8 +153,6 @@
         [self.annualRate setEnabled:NO];
         [self.payYear setEnabled:NO];        
         [self.saveButton setEnabled:NO];
-        
-        // NSArray* result = [dbManager getData];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Data saved successfully."
                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

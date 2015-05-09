@@ -19,14 +19,14 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.calculate_btn.layer.borderWidth = 0.5f;
     self.calculate_btn.layer.cornerRadius = 10;
     self.calculate_btn.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.update_btn.layer.borderWidth = 0.5f;
     self.update_btn.layer.cornerRadius = 10;
     self.update_btn.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-
-    NSLog(@"Data: %@",_data);
+    
     self.type_value.text = [_data[0] valueForKey:@"propertyType"];
     self.address_value.text = [_data[0] valueForKey:@"address"];
     self.city_value.text = [_data[0] valueForKey:@"city"];
@@ -41,6 +41,7 @@
     self.apr_input.text = converted_apr;
     self.term_input.text = converted_term;
     self.result.text = [_data[0] valueForKey:@"mortgageAmount"];
+    
     // scrollview
     self.scrollview.contentSize = CGSizeMake(320, 1200);
     UITapGestureRecognizer *tapScroll = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapped)];
@@ -51,26 +52,12 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)recalculate:(id)sender {
     int termInYears = [self.term_input.text intValue];
     int loanAmount = [self.amt_input.text intValue];
-    
-//    if (![self validateInputs:@"calculate"])
-//        return;
-    
+  
     double interestRate = [self.apr_input.text doubleValue] / 100.0;
     double monthlyRate = interestRate / 12.0;
     
@@ -103,7 +90,6 @@
     if (success == YES) {
         NSArray *newValue;
         newValue = [dbManager getDataByAddress:address];
-        NSLog(@"New value: %@",newValue );
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Data updated successfully."
                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
