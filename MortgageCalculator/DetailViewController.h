@@ -8,8 +8,12 @@
 
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface DetailViewController : UIViewController
+
+@property (nonatomic) CLLocationCoordinate2D kPanoramaNear;
+@property (nonatomic) CLLocationCoordinate2D kMarkerAt;
 
 @property (nonatomic) double lat;
 @property (nonatomic) double lon;
