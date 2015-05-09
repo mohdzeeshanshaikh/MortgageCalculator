@@ -9,8 +9,8 @@
 
 #import "Annotation.h"
 
-double lat;
-double lon;
+//double lat;
+//double lon;
 NSString *locationDetails;
 
 @implementation Annotation
@@ -18,24 +18,23 @@ NSString *locationDetails;
 
 - (void)updateDetails:(NSString *)locDetails itm:(MKMapItem *)item
 {
-    lat=item.placemark.coordinate.latitude;    //37.34015288;
-    lon=item.placemark.coordinate.longitude; //-121.88096400;
-    NSLog(@"Updating Details: %@",locationDetails);
-    NSLog(@"Item: %@",item);
-    NSLog(@"Lat: %f",lat);
-    NSLog(@"Lon: %f",lon);
+    NSLog(@"Item in update: %@",item);
+    _lat=item.placemark.coordinate.latitude;    //37.34015288;
+    _lon=item.placemark.coordinate.longitude; //-121.88096400;
+    NSLog(@"Lat in update: %f",_lat);
+    NSLog(@"Lon in update: %f",_lon);
     locationDetails=locDetails;
+    NSLog(@"Updating Details: %@",locationDetails);
 }
 
 - (CLLocationCoordinate2D)coordinate
 {
     CLLocationCoordinate2D theCoordinate;
-    theCoordinate.latitude = lat;
-    theCoordinate.longitude = lon;
-    
-    NSLog(@"co-Lat: %f",lat);
-    NSLog(@"co-Lon: %f",lon);
-
+    theCoordinate.latitude = _lat;
+    theCoordinate.longitude = _lon;
+    //
+    //    NSLog(@"co-Lat: %f",theCoordinate.latitude);
+    //    NSLog(@"co-Lon: %f",theCoordinate.longitude);
     return theCoordinate;
 }
 
@@ -55,7 +54,7 @@ NSString *locationDetails;
 {
     // try to dequeue an existing pin view first
     MKAnnotationView *returnedAnnotationView =
-    [mapView viewForAnnotation:annotation];
+    [mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass([Annotation class])];
     if (returnedAnnotationView == nil)
     {
         returnedAnnotationView =

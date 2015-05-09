@@ -48,7 +48,7 @@ NSMutableArray *locations;
     NSLog(@"dbData: %@",dbData);
     NSLog(@"dbData count: %lu",(unsigned long)dbData.count);
     [self gotoDefaultLocation];
-
+    
     
     NSInteger i;
     
@@ -75,9 +75,9 @@ NSMutableArray *locations;
         _locationDetails=[_locationDetails stringByAppendingString:@"\nProperty Type: "];
         _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"propertyType"]];
         NSLog(@"Location Details: %@",_locationDetails);
-    
+        
         [self locateOnMap];
-
+        
     }
     
 }
@@ -127,27 +127,25 @@ NSMutableArray *locations;
             NSLog(@"Response: %@",response);
         unsigned long i;
         i=0;
-            for (MKMapItem *item in response.mapItems)
-            {
-//                MKPointAnnotation *annotation =
-//                [[MKPointAnnotation alloc]init];
-//                annotation.coordinate = item.placemark.coordinate;
-//                annotation.title = item.name;
-//                
-//                [mapView addAnnotation:annotation];
-//                [self gotoDefaultLocation];
-                
-                NSLog(@"Item %lu: %@",i,item);
-                i++;
-
-                Annotation *annotation = [[Annotation alloc] init];
-                //annotation.coordinate=item.placemark.coordinate;
-                [annotation  updateDetails:_locationDetails itm:item];
-                [mapView addAnnotation:annotation];
-                [self gotoDefaultLocation];
-               // [locations addObject:annotation];
-            }
-        
+        for (MKMapItem *item in response.mapItems)
+        {
+            //                MKPointAnnotation *annotation =
+            //                [[MKPointAnnotation alloc]init];
+            //                annotation.coordinate = item.placemark.coordinate;
+            //                annotation.title = item.name;
+            //
+            //                [mapView addAnnotation:annotation];
+            //                [self gotoDefaultLocation];
+            NSLog(@"Item in for loop %lu: %@",i,item);
+            //i++;
+            Annotation *annotation = [[Annotation alloc] init];
+            [annotation  updateDetails:_locationDetails itm:item];
+            NSLog(@"Lat in for loop: %f",annotation.lat);
+            NSLog(@"Long in for loop: %f",annotation.lon);
+            [mapView addAnnotation:annotation];
+            [self gotoDefaultLocation];
+            // [locations addObject:annotation];
+        }
     }];
 }
 
@@ -157,11 +155,11 @@ NSMutableArray *locations;
 //    NSLog(@"viewForAnnotation");
 //
 //    MKAnnotationView *returnedAnnotationView = nil;
-////    
+////
 ////    // in case it's the user location, we already have an annotation, so just return nil
 ////    if (![annotation isKindOfClass:[MKUserLocation class]])
 ////    {
-//    
+//
 //            UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 //            [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
 //            ((MKPinAnnotationView *)returnedAnnotationView).rightCalloutAccessoryView = rightButton;
@@ -178,9 +176,9 @@ NSMutableArray *locations;
     {
         NSLog(@"clicked annotation");
         
-        DetailViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailViewController"];
+        //        DetailViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailViewController"];
         
-            [self.navigationController pushViewController:detailViewController animated:YES];
+        //[self.navigationController pushViewController:detailViewController animated:YES];
         
     }
 }
@@ -205,15 +203,59 @@ NSMutableArray *locations;
             //
             // by using "calloutAccessoryControlTapped", it's a convenient way to find out which annotation was tapped
             //
-            UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-            [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+            UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [rightButton setTitle:@"StreetView" forState:UIControlStateNormal];
+            
+            rightButton.frame=CGRectMake(0.0, 0.0, 80.0, 40.0);
+            [rightButton addTarget:self action:@selector(streetViewMethod) forControlEvents:UIControlEventTouchUpInside];
             ((MKPinAnnotationView *)returnedAnnotationView).rightCalloutAccessoryView = rightButton;
+            
+            UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [leftButton setTitle:@"Update" forState:UIControlStateNormal];
+            
+            leftButton.frame=CGRectMake(0.0, 0.0, 80.0, 40.0);
+            [leftButton addTarget:self action:@selector(updateMethod) forControlEvents:UIControlEventTouchUpInside];
+            ((MKPinAnnotationView *)returnedAnnotationView).leftCalloutAccessoryView = leftButton;
         }
     }
     
     return returnedAnnotationView;
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        // NSString *name = [alertView textFieldAtIndex:0].text;
+        NSLog(@"U R IN DELETE");
+        
+    }else if(buttonIndex==2){
+        NSLog(@"U R IN EDIT");
+    }
+}
+
+
+-(void)streetViewMethod{
+    NSLog(@"CLICKED EDIT");
+    DetailViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    //    PanoramaViewController *panaromaViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"PanoramaViewController"];
+    //    [self.navigationController pushViewController:panaromaViewController animated:YES];
+}
+
+
+-(void)updateMethod{
+    NSLog(@"CLICKED update");
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"EDIT OPTIONS"
+                                                    message:@""
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Delete",@"Edit", nil];
+    // alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+    
+}
 
 
 
