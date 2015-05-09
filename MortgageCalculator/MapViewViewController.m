@@ -17,7 +17,7 @@
 
 @end
 
-NSString* _locationDetails;
+//NSString* _locationDetails;
 NSMutableArray *locations;
 
 @implementation MapViewViewController
@@ -120,14 +120,18 @@ NSMutableArray *locations;
     MKLocalSearch *search =
     [[MKLocalSearch alloc]initWithRequest:request];
     NSLog(@"Search: %@",search);
+    
+    NSLog(@"Location Details in locateOnMap: %@",_locationDetails);
+    NSString* tempLoc = _locationDetails;
+
     [search startWithCompletionHandler:^(MKLocalSearchResponse
                                          *response, NSError *error) {
         if (response.mapItems.count == 0)
             NSLog(@"No Matches");
         else
             NSLog(@"Response: %@",response);
-        unsigned long i;
-        i=0;
+//        unsigned long i;
+//        i=0;
         for (MKMapItem *item in response.mapItems)
         {
             //                MKPointAnnotation *annotation =
@@ -137,18 +141,19 @@ NSMutableArray *locations;
             //
             //                [mapView addAnnotation:annotation];
             //                [self gotoDefaultLocation];
-            NSLog(@"Item in for loop %lu: %@",i,item);
+            //NSLog(@"Item in for loop %lu: %@",i,item);
             //i++;
             Annotation *annotation = [[Annotation alloc] init];
-            [annotation  updateDetails:_locationDetails itm:item];
+            [annotation  updateDetails:tempLoc itm:item];
             NSLog(@"Lat in for loop: %f",annotation.lat);
             NSLog(@"Long in for loop: %f",annotation.lon);
-            _locationDetails=@"";
+            //_locationDetails=@"";
             [mapView addAnnotation:annotation];
             [self gotoDefaultLocation];
             // [locations addObject:annotation];
         }
     }];
+    //_locationDetails=@"";
 }
 
 //
@@ -208,14 +213,14 @@ NSMutableArray *locations;
             UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [rightButton setTitle:@"StreetView" forState:UIControlStateNormal];
             
-            rightButton.frame=CGRectMake(0.0, 0.0, 80.0, 40.0);
+            rightButton.frame=CGRectMake(0.0, 0.0, 80.0, 140.0);
             [rightButton addTarget:self action:@selector(streetViewMethod) forControlEvents:UIControlEventTouchUpInside];
             ((MKPinAnnotationView *)returnedAnnotationView).rightCalloutAccessoryView = rightButton;
             
             UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [leftButton setTitle:@"Update" forState:UIControlStateNormal];
             
-            leftButton.frame=CGRectMake(0.0, 0.0, 80.0, 40.0);
+            leftButton.frame=CGRectMake(0.0, 0.0, 80.0, 140.0);
             [leftButton addTarget:self action:@selector(updateMethod) forControlEvents:UIControlEventTouchUpInside];
             ((MKPinAnnotationView *)returnedAnnotationView).leftCalloutAccessoryView = leftButton;
         }

@@ -15,5 +15,6 @@
 - (void)updateDetails:(NSString *)locDetails itm:(MKMapItem *)item;
 @property (nonatomic) double lat;
 @property (nonatomic) double lon;
+@property (nonatomic) NSString *locationDetails;
 
 @end
