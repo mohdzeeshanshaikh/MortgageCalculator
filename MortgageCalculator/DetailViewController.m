@@ -9,8 +9,8 @@
 #import "DetailViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 
-static CLLocationCoordinate2D kPanoramaNear = {40.761388, -73.978133};
-static CLLocationCoordinate2D kMarkerAt = {40.761455, -73.977814};
+//static CLLocationCoordinate2D kPanoramaNear = {40.761388, -73.978133};
+//static CLLocationCoordinate2D kMarkerAt = {40.761455, -73.977814};
 
 @interface DetailViewController () <GMSPanoramaViewDelegate>
 @end
@@ -18,13 +18,18 @@ static CLLocationCoordinate2D kMarkerAt = {40.761455, -73.977814};
 @implementation DetailViewController{
     GMSPanoramaView *view_;
     BOOL configured_;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _kPanoramaNear.latitude = _lat;
+    _kPanoramaNear.longitude = _lon;
+    _kMarkerAt.latitude = _lat;
+    _kMarkerAt.longitude = _lon;
     
     view_ = [GMSPanoramaView panoramaWithFrame:CGRectZero
-                                nearCoordinate:kPanoramaNear];
+                                nearCoordinate:_kPanoramaNear];
     view_.backgroundColor = [UIColor grayColor];
     view_.delegate = self;
     self.view = view_;
@@ -41,11 +46,11 @@ static CLLocationCoordinate2D kMarkerAt = {40.761455, -73.977814};
 - (void)panoramaView:(GMSPanoramaView *)view
    didMoveToPanorama:(GMSPanorama *)panorama {
     if (!configured_) {
-        GMSMarker *marker = [GMSMarker markerWithPosition:kMarkerAt];
+        GMSMarker *marker = [GMSMarker markerWithPosition:_kMarkerAt];
         marker.icon = [GMSMarker markerImageWithColor:[UIColor purpleColor]];
         marker.panoramaView = view_;
         
-        CLLocationDegrees heading = GMSGeometryHeading(kPanoramaNear, kMarkerAt);
+        CLLocationDegrees heading = GMSGeometryHeading(_kPanoramaNear, _kMarkerAt);
         view_.camera =
         [GMSPanoramaCamera cameraWithHeading:heading pitch:0 zoom:1];
         

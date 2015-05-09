@@ -38,7 +38,8 @@ Annotation* marker;
     mapView.showsUserLocation = YES;
     mapView.delegate = self;
     mapView.zoomEnabled = YES;
-    
+    mapView.frame = self.view.bounds;
+    mapView.autoresizingMask = self.view.autoresizingMask;
     _addressQuery=@"";
     _locationDetails=@"";
     locations = [[NSMutableArray alloc] init];
@@ -66,13 +67,13 @@ Annotation* marker;
         
         NSLog(@"address query: %@",_addressQuery);
     
-        _locationDetails=[_locationDetails stringByAppendingString:@"Address: "];
+        //_locationDetails=[_locationDetails stringByAppendingString:@"Address: "];
         _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"address"]];
-        _locationDetails=[_locationDetails stringByAppendingString:@"\nCity: "];
+        _locationDetails=[_locationDetails stringByAppendingString:@"\n"];
         _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"city"]];
-        _locationDetails=[_locationDetails stringByAppendingString:@"\nMortgage Amount: "];
+        _locationDetails=[_locationDetails stringByAppendingString:@"\n"];
         _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"mortgageAmount"]];
-        _locationDetails=[_locationDetails stringByAppendingString:@"\nProperty Type: "];
+        _locationDetails=[_locationDetails stringByAppendingString:@"\n"];
         _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"propertyType"]];
         NSLog(@"Location Details: %@",_locationDetails);
         
