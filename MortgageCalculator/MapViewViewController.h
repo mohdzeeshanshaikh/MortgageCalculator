@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic) NSString *cur_address;
+@property (nonatomic) double latt;
+@property (nonatomic) double lonn;
 @property (nonatomic) NSString *city;
 
 @end

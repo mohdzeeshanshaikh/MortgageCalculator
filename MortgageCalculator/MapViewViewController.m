@@ -246,6 +246,8 @@ Annotation* marker;
         marker = view.annotation;
         NSLog(@"selected marker %@", marker.nameParam);
         _cur_address = marker.nameParam;
+        _latt=marker.lat;
+        _lonn=marker.lon;
     }
 }
 
@@ -276,7 +278,8 @@ Annotation* marker;
 -(void)streetViewMethod{
     NSLog(@"CLICKED EDIT");
     DetailViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailViewController"];
-    
+    detailViewController.lat=_latt;
+    detailViewController.lon=_lonn;
     [self.navigationController pushViewController:detailViewController animated:YES];
     
     //    PanoramaViewController *panaromaViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"PanoramaViewController"];
