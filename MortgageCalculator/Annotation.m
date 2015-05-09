@@ -15,7 +15,7 @@
 @implementation Annotation
 
 
-- (void)updateDetails:(NSString *)locDetails itm:(MKMapItem *)item
+- (void)updateDetails:(NSString *)locDetails itm:(MKMapItem *)item an:(NSString *)addressName
 {
     NSLog(@"Item in update: %@",item);
     _lat=item.placemark.coordinate.latitude;    //37.34015288;
@@ -24,6 +24,8 @@
     NSLog(@"Lon in update: %f",_lon);
     _locationDetails=locDetails;
     NSLog(@"Updating Details: %@",_locationDetails);
+    _nameParam = addressName;
+    NSLog(@"_nameParam: %@",_nameParam);
 }
 
 - (CLLocationCoordinate2D)coordinate
