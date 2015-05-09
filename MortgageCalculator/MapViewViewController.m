@@ -63,10 +63,7 @@ NSMutableArray *locations;
         _addressQuery=[_addressQuery stringByAppendingString:[dbData[i] valueForKey:@"city"]];
         
         NSLog(@"address query: %@",_addressQuery);
-        
-        
-        
-        
+    
         _locationDetails=[_locationDetails stringByAppendingString:@"Address: "];
         _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"address"]];
         _locationDetails=[_locationDetails stringByAppendingString:@"\nCity: "];
@@ -76,7 +73,9 @@ NSMutableArray *locations;
         _locationDetails=[_locationDetails stringByAppendingString:@"\nProperty Type: "];
         _locationDetails=[_locationDetails stringByAppendingString:[dbData[i] valueForKey:@"propertyType"]];
         NSLog(@"Location Details: %@",_locationDetails);
-        
+//        _cur_address = @"";
+
+//        _cur_address = [dbData[i] valueForKey:@"address"];
         [self locateOnMap];
         
     }
@@ -148,8 +147,8 @@ NSMutableArray *locations;
             NSLog(@"Lat in for loop: %f",annotation.lat);
             NSLog(@"Long in for loop: %f",annotation.lon);
             _locationDetails=@"";
-            _cur_address = item.placemark.name;
-            NSLog(@"Current address: %@",_cur_address);
+            //_cur_address = item.placemark.name;
+            //NSLog(@"Current address: %@",_cur_address);
             //_locationDetails=@"";
             [mapView addAnnotation:annotation];
             [self gotoDefaultLocation];
@@ -184,7 +183,8 @@ NSMutableArray *locations;
     id <MKAnnotation> annotation = [view annotation];
     if ([annotation isKindOfClass:[Annotation class]])
     {
-        NSLog(@"clicked annotation %@", _cur_address);
+                NSLog(@"clicked annotation %@", _cur_address);
+     //   _cur_address=view.
         
         //        DetailViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailViewController"];
         
@@ -205,6 +205,7 @@ NSMutableArray *locations;
         if ([annotation isKindOfClass:[Annotation class]])
         {
             returnedAnnotationView = [Annotation createViewAnnotationForMapView:self.mapView annotation:annotation];
+//            NSLog(@"anno: %@",annotation.lo);
             
             // add a detail disclosure button to the callout which will open a new view controller page or a popover
             //
@@ -226,10 +227,19 @@ NSMutableArray *locations;
             leftButton.frame=CGRectMake(0.0, 0.0, 80.0, 140.0);
             [leftButton addTarget:self action:@selector(updateMethod) forControlEvents:UIControlEventTouchUpInside];
             ((MKPinAnnotationView *)returnedAnnotationView).leftCalloutAccessoryView = leftButton;
+
         }
     }
     
     return returnedAnnotationView;
+}
+
+-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    if ([view.annotation isKindOfClass:[Annotation class]]) {
+        Annotation* marker = view.annotation;
+        NSLog(@"selected marker %@", marker.locationDetails);
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -240,7 +250,9 @@ NSMutableArray *locations;
     }else if(buttonIndex==2){
         NSLog(@"U R IN EDIT");
         EditViewController *editViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"EditViewController"];
-        DBManager* dbManager = [DBManager getSharedInstance];
+        //DBManager* dbManager = [DBManager getSharedInstance];
+        editViewController.address_from_map = _cur_address;
+        NSLog(@"EDIT VIEW CONTROLLER ADDR VALUE%@",editViewController.address_from_map);
 //        editViewController.data = [dbManager getDataByAddress];
         [self.navigationController pushViewController:editViewController animated:YES];
     }

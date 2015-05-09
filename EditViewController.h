@@ -33,5 +33,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *calculate_btn;
 @property (weak, nonatomic) IBOutlet UITextField *result;
 @property (nonatomic) NSArray *data;
+@property (nonatomic) NSString *address_from_map;
 
 @end
