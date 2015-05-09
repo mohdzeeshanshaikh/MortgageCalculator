@@ -11,7 +11,6 @@
 
 //double lat;
 //double lon;
-NSString *locationDetails;
 
 @implementation Annotation
 
@@ -23,8 +22,8 @@ NSString *locationDetails;
     _lon=item.placemark.coordinate.longitude; //-121.88096400;
     NSLog(@"Lat in update: %f",_lat);
     NSLog(@"Lon in update: %f",_lon);
-    locationDetails=locDetails;
-    NSLog(@"Updating Details: %@",locationDetails);
+    _locationDetails=locDetails;
+    NSLog(@"Updating Details: %@",_locationDetails);
 }
 
 - (CLLocationCoordinate2D)coordinate
@@ -47,7 +46,7 @@ NSString *locationDetails;
 // optional
 - (NSString *)subtitle
 {
-    return locationDetails;
+    return _locationDetails;
 }
 
 + (MKAnnotationView *)createViewAnnotationForMapView:(MKMapView *)mapView annotation:(id <MKAnnotation>)annotation
@@ -62,6 +61,8 @@ NSString *locationDetails;
         
         ((MKPinAnnotationView *)returnedAnnotationView).pinColor = MKPinAnnotationColorPurple;
         ((MKPinAnnotationView *)returnedAnnotationView).animatesDrop = YES;
+//        ((MKPinAnnotationView *)returnedAnnotationView).
+        //frame = CGRectMake(0.0, 0.0, 280.0, 340.0);
         ((MKPinAnnotationView *)returnedAnnotationView).canShowCallout = YES;
     }
     
