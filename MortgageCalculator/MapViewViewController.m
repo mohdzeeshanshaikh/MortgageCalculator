@@ -144,6 +144,8 @@ NSMutableArray *locations;
             NSLog(@"Lat in for loop: %f",annotation.lat);
             NSLog(@"Long in for loop: %f",annotation.lon);
             _locationDetails=@"";
+            _cur_address = item.placemark.name;
+            NSLog(@"Current address: %@",_cur_address);
             [mapView addAnnotation:annotation];
             [self gotoDefaultLocation];
             // [locations addObject:annotation];
@@ -176,7 +178,7 @@ NSMutableArray *locations;
     id <MKAnnotation> annotation = [view annotation];
     if ([annotation isKindOfClass:[Annotation class]])
     {
-        NSLog(@"clicked annotation");
+        NSLog(@"clicked annotation %@", _cur_address);
         
         //        DetailViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailViewController"];
         
@@ -232,7 +234,8 @@ NSMutableArray *locations;
     }else if(buttonIndex==2){
         NSLog(@"U R IN EDIT");
         EditViewController *editViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"EditViewController"];
-        
+        DBManager* dbManager = [DBManager getSharedInstance];
+//        editViewController.data = [dbManager getDataByAddress];
         [self.navigationController pushViewController:editViewController animated:YES];
     }
 }

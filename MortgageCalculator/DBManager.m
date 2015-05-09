@@ -115,4 +115,55 @@ static sqlite3_stmt *statement = nil;
     }
     return nil;
 }
+
+- (NSArray*) getDataByAddress : (NSString*) inputAddress : (NSString*) inputCity {
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
+        NSString *querySQL = [NSString stringWithFormat:
+                              @"select propertyType, address, city, state, zipCode, loanAmount, downPayment, annualRate, payYear, mortgageAmount from mortgageDetail where address=:inputAddress and city=:inputCity"];
+        const char *query_stmt = [querySQL UTF8String];
+        NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+        if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK) {
+            while (sqlite3_step(statement) == SQLITE_ROW) {
+                NSMutableDictionary *resultDictionary=[[NSMutableDictionary alloc] init];
+                
+                NSString *propertyType = [[NSString alloc] initWithUTF8String:
+                                          (const char *) sqlite3_column_text(statement, 0)];
+                [resultDictionary setObject:propertyType forKey:@"propertyType"];
+                NSString *address = [[NSString alloc] initWithUTF8String:
+                                     (const char *) sqlite3_column_text(statement, 1)];
+                [resultDictionary setObject:address forKey:@"address"];
+                NSString *city = [[NSString alloc]initWithUTF8String:
+                                  (const char *) sqlite3_column_text(statement, 2)];
+                [resultDictionary setObject:city forKey:@"city"];
+                NSString *state = [[NSString alloc] initWithUTF8String:
+                                   (const char *) sqlite3_column_text(statement, 3)];
+                [resultDictionary setObject:state forKey:@"state"];
+                NSString *zipCode = [[NSString alloc] initWithUTF8String:
+                                     (const char *) sqlite3_column_text(statement, 4)];
+                [resultDictionary setObject:zipCode forKey:@"zipCode"];
+                NSNumber *loanAmount = [NSNumber numberWithInt:(int)sqlite3_column_int(statement, 5)];
+                [resultDictionary setObject:loanAmount forKey:@"loanAmount"];
+                NSNumber *downPayment = [NSNumber numberWithInt:(int)sqlite3_column_int(statement, 6)];
+                [resultDictionary setObject:downPayment forKey:@"downPayment"];
+                NSNumber *annualRate = [NSNumber numberWithFloat:(double)sqlite3_column_double(statement, 7)];
+                [resultDictionary setObject:annualRate forKey:@"annualRate"];
+                NSNumber *payYear = [NSNumber numberWithFloat:(int)sqlite3_column_int(statement, 8)];
+                [resultDictionary setObject:payYear forKey:@"payYear"];
+                NSString *mortgageAmount = [[NSString alloc] initWithUTF8String:
+                                            (const char *) sqlite3_column_text(statement, 9)];
+                [resultDictionary setObject:mortgageAmount forKey:@"mortgageAmount"];
+                
+                [resultArray addObject:resultDictionary];
+            }
+        } else {
+            NSLog(@"No Data Found");
+        }
+        sqlite3_reset(statement);
+        return resultArray;
+    }
+    return nil;
+}
+
+
 @end

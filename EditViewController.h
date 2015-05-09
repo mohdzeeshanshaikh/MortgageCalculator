@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DBManager.h"
 
 @interface EditViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *property_label;
@@ -31,5 +32,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *term_input;
 @property (weak, nonatomic) IBOutlet UIButton *calculate_btn;
 @property (weak, nonatomic) IBOutlet UITextField *result;
+@property (nonatomic) NSArray *data;
 
 @end

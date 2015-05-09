@@ -17,6 +17,8 @@
 //@property (strong, nonatomic) Annotation *annotation;
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property(nonatomic, retain) CLLocationManager *locationManager;
+@property (nonatomic, retain) CLLocationManager *locationManager;
+@property (nonatomic) NSString *cur_address;
+@property (nonatomic) NSString *city;
 
 @end
