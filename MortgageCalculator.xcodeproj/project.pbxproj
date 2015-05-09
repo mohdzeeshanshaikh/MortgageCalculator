@@ -20,6 +20,7 @@
 		2EFB16E81AE64D0800E8D766 /* CalculationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EFB16E71AE64D0800E8D766 /* CalculationViewController.m */; };
 		3F5DE2EB1AFC75EA0025FC56 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DE2EA1AFC75EA0025FC56 /* Annotation.m */; };
 		3F5DE2EE1AFC77480025FC56 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DE2ED1AFC77480025FC56 /* DetailViewController.m */; };
+		91A5388D1AFD9FD300296EC1 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91A5388C1AFD9FD300296EC1 /* EditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		3F5DE2EA1AFC75EA0025FC56 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 		3F5DE2EC1AFC77480025FC56 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		3F5DE2ED1AFC77480025FC56 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		91A5388B1AFD9FD300296EC1 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		91A5388C1AFD9FD300296EC1 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 		2E68C0DF1AE0A5C200392AB9 = {
 			isa = PBXGroup;
 			children = (
+				91A5388B1AFD9FD300296EC1 /* EditViewController.h */,
+				91A5388C1AFD9FD300296EC1 /* EditViewController.m */,
 				3FD4B6681AFACA4300F1D035 /* Custom Annotation */,
 				2E5903E11AEB7F6300883A53 /* libsqlite3.dylib */,
 				2EFB16DE1AE6434800E8D766 /* MapKit.framework */,
@@ -260,6 +265,7 @@
 				2EFB16E81AE64D0800E8D766 /* CalculationViewController.m in Sources */,
 				2E68C1191AE0C44300392AB9 /* MapViewViewController.m in Sources */,
 				2E68C0F11AE0A5C200392AB9 /* AppDelegate.m in Sources */,
+				91A5388D1AFD9FD300296EC1 /* EditViewController.m in Sources */,
 				2E68C0EE1AE0A5C200392AB9 /* main.m in Sources */,
 				2E5903E51AEB83A100883A53 /* DBManager.m in Sources */,
 				3F5DE2EE1AFC77480025FC56 /* DetailViewController.m in Sources */,
@@ -390,6 +396,7 @@
 				INFOPLIST_FILE = MortgageCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -401,6 +408,7 @@
 				INFOPLIST_FILE = MortgageCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

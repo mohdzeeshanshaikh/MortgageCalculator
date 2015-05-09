@@ -11,6 +11,7 @@
 
 #import "Annotation.h"
 #import "DetailViewController.h"
+#import "EditViewController.h"
 
 @interface MapViewViewController ()
 
@@ -142,6 +143,7 @@ NSMutableArray *locations;
             [annotation  updateDetails:_locationDetails itm:item];
             NSLog(@"Lat in for loop: %f",annotation.lat);
             NSLog(@"Long in for loop: %f",annotation.lon);
+            _locationDetails=@"";
             [mapView addAnnotation:annotation];
             [self gotoDefaultLocation];
             // [locations addObject:annotation];
@@ -229,6 +231,9 @@ NSMutableArray *locations;
         
     }else if(buttonIndex==2){
         NSLog(@"U R IN EDIT");
+        EditViewController *editViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"EditViewController"];
+        
+        [self.navigationController pushViewController:editViewController animated:YES];
     }
 }
 
