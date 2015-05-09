@@ -7,23 +7,50 @@
 //
 
 #import "DetailViewController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
-@implementation DetailViewController
+static CLLocationCoordinate2D kPanoramaNear = {40.761388, -73.978133};
+static CLLocationCoordinate2D kMarkerAt = {40.761455, -73.977814};
 
-- (void)viewDidLoad
-{
+@interface DetailViewController () <GMSPanoramaViewDelegate>
+@end
+
+@implementation DetailViewController{
+    GMSPanoramaView *view_;
+    BOOL configured_;
+}
+
+- (void)viewDidLoad {
     [super viewDidLoad];
-    //UITextField *text = (UITextField *)self.view;
     
-    // fit the our popover size to match our image size
-    //UIImageView *imageView = (UIImageView *)self.view;
-    
-    // this will determine the appropriate size of our popover
-    //self.preferredContentSize = CGSizeMake(imageView.image.size.width, imageView.image.size.height);
-    //self.title = @"Golden Gate";
-    
-    // for this view controller we want a black style nav bar
-    //self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    view_ = [GMSPanoramaView panoramaWithFrame:CGRectZero
+                                nearCoordinate:kPanoramaNear];
+    view_.backgroundColor = [UIColor grayColor];
+    view_.delegate = self;
+    self.view = view_;
+}
+
+#pragma mark - GMSPanoramaDelegate
+
+- (void)panoramaView:(GMSPanoramaView *)panoramaView
+       didMoveCamera:(GMSPanoramaCamera *)camera {
+    NSLog(@"Camera: (%f,%f,%f)",
+          camera.orientation.heading, camera.orientation.pitch, camera.zoom);
+}
+
+- (void)panoramaView:(GMSPanoramaView *)view
+   didMoveToPanorama:(GMSPanorama *)panorama {
+    if (!configured_) {
+        GMSMarker *marker = [GMSMarker markerWithPosition:kMarkerAt];
+        marker.icon = [GMSMarker markerImageWithColor:[UIColor purpleColor]];
+        marker.panoramaView = view_;
+        
+        CLLocationDegrees heading = GMSGeometryHeading(kPanoramaNear, kMarkerAt);
+        view_.camera =
+        [GMSPanoramaCamera cameraWithHeading:heading pitch:0 zoom:1];
+        
+        configured_ = YES;
+    }
 }
 
 @end

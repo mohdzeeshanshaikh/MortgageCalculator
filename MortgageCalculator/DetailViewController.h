@@ -11,4 +11,7 @@
 
 @interface DetailViewController : UIViewController
 
+@property (nonatomic) double lat;
+@property (nonatomic) double lon;
+
 @end
