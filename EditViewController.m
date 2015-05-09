@@ -16,8 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //NSLog(@"Data: %@",_data);
-    NSLog(@"Data: %@",_address_from_map);
+    NSLog(@"Data: %@",_data);
+//    NSLog(@"Data: %@",_address_from_map);
     // Do any additional setup after loading the view.
 }
 

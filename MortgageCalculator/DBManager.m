@@ -116,11 +116,12 @@ static sqlite3_stmt *statement = nil;
     return nil;
 }
 
-- (NSArray*) getDataByAddress : (NSString*) inputAddress : (NSString*) inputCity {
+- (NSArray*) getDataByAddress : (NSString*) inputAddress{
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK) {
         NSString *querySQL = [NSString stringWithFormat:
-                              @"select propertyType, address, city, state, zipCode, loanAmount, downPayment, annualRate, payYear, mortgageAmount from mortgageDetail where address=:inputAddress and city=:inputCity"];
+                              @"select propertyType, address, city, state, zipCode, loanAmount, downPayment, annualRate, payYear, mortgageAmount from mortgageDetail where address like \"%@\"",inputAddress];
+        NSLog(@"query: %@",querySQL );
         const char *query_stmt = [querySQL UTF8String];
         NSMutableArray *resultArray = [[NSMutableArray alloc]init];
         if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK) {

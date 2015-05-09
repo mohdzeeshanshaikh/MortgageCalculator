@@ -19,6 +19,6 @@
 -(BOOL) saveData:(NSString*)propertyType address:(NSString*)address city:(NSString*)city state:(NSString*)state zipCode:(NSString*)zipCode
       loanAmount:(int)loanAmount downPayment:(int)downPayment annualRate:(double)annualRate payYear:(int)payYear mortgageAmount:(NSString*)mortgageAmount;
 -(NSArray*) getData;
--(NSArray*) getDataByAddress : (NSString*) inputAddress : (NSString*) inputCity;
+-(NSArray*) getDataByAddress : (NSString*) inputAddress;
 
 @end

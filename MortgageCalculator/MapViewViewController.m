@@ -239,6 +239,7 @@ NSMutableArray *locations;
     if ([view.annotation isKindOfClass:[Annotation class]]) {
         Annotation* marker = view.annotation;
         NSLog(@"selected marker %@", marker.locationDetails);
+        _cur_address = marker.locationDetails;
     }
 }
 
@@ -250,10 +251,13 @@ NSMutableArray *locations;
     }else if(buttonIndex==2){
         NSLog(@"U R IN EDIT");
         EditViewController *editViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"EditViewController"];
-        //DBManager* dbManager = [DBManager getSharedInstance];
+        DBManager* dbManager = [DBManager getSharedInstance];
         editViewController.address_from_map = _cur_address;
         NSLog(@"EDIT VIEW CONTROLLER ADDR VALUE%@",editViewController.address_from_map);
-//        editViewController.data = [dbManager getDataByAddress];
+        //editViewController.data = [dbManager getDataByAddress : _cur_address];
+        NSString *test = @"459 serenade way";
+        editViewController.data = [dbManager getDataByAddress : test];
+        NSLog(@"Data first: %@",editViewController.data);
         [self.navigationController pushViewController:editViewController animated:YES];
     }
 }
