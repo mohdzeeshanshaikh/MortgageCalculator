@@ -8,5 +8,6 @@ Map tab allows user able to see all the properties that user has added. It rende
 	* delete
 	* edit
 * Street view
+
 ### Street View
 This navigates the user to the Google Maps Street View of currently selected property.
